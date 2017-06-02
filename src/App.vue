@@ -1,17 +1,20 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <hello></hello>
+    <first></first>
+    <second></second>
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello'
+import First from '@/components/first/first.vue'
+import Second from '@/components/second/second.vue'
 
 export default {
   name: 'app',
   components: {
-    Hello
+    First,
+    Second
   }
 }
 </script>
@@ -22,7 +25,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #2c3e50; 
   margin-top: 60px;
 }
 </style>
