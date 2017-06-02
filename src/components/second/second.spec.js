@@ -1,4 +1,8 @@
 import Vue from 'vue'
+import VueResource from 'vue-resource'
+
+Vue.use(VueResource)
+
 import Second from '@/components/second/second'
 
 describe('Second.vue', () => {
@@ -21,6 +25,28 @@ describe('Second.vue', () => {
             expect(Second.methods.sum(1, 3)).to.equal(4)
         })
 
+    })
+
+    context('Method getGitHubUsers()', () => {
+
+        it('response 200?', () => {
+            const Constructor = Vue.extend(Second)
+            const vm = new Constructor().$mount()
+
+            return vm.getGithubUsers('joohncruz')
+                .then(response => assert.equal(response.status, 200))
+                .catch(error => assert.equal(error.status, 200))
+
+        })
+
+        it('same user', () => {
+            const Constructor = Vue.extend(Second)
+            const vm = new Constructor().$mount()
+
+            return vm.getGithubUsers('joohncruz')
+                .then(response => assert.equal(response.body.login, 'joohncruz'))
+
+        })
     })
 
 })

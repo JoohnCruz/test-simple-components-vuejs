@@ -15,8 +15,10 @@ export default {
     methods: {
         sum(a, b){
             return a + b
+        },
+        getGithubUsers(name) {
+            return this.$http.get(`https://api.github.com/users/${name}`)
         }
-    }
-    
+    }    
 }
 </script>
